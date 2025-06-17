@@ -26,10 +26,24 @@ function createGrid(gridSize) {
             gridRow.style.width = (960 / gridSize) + "px";
             gridRow.style.height = (960 / gridSize) + "px";
             gridRow.addEventListener("mouseover", () => {
-                gridRow.style.background = "black";
+                gridRow.style.background = getRandomRGB();
             });
             gridCol.appendChild(gridRow);
         }
         gridContainer.appendChild(gridCol);
     }
+}
+
+function getRandomRGB() {
+  const r = Math.floor(Math.random() * 256);
+  const g = Math.floor(Math.random() * 256);
+  const b = Math.floor(Math.random() * 256);
+  return `rgb(${r}, ${g}, ${b})`;
+}
+
+function getRandomHSL() {
+    const h = Math.floor(Math.random() * 360);
+    const s = Math.floor(Math.random() * 40) + 10; // Saturation between 30-70
+    const l = Math.floor(Math.random() * 20) + 40; // Lightness between 70-90
+    return `hsl(${h}, ${s}%, ${l}%)`;
 }
